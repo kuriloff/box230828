@@ -68,6 +68,4 @@ public class HW230827 {
         System.out.println("Max positive num: " + positiveMax);
         System.out.println("Min negative num: " + negativeMin);
     }
-
-
 }

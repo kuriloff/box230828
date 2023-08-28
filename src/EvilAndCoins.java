@@ -5,11 +5,16 @@
 import java.util.Random;
 public class EvilAndCoins {
     public static void main(String[] args) {
-        int loopCount = 100000000;
+        int loopCount = 1000000;
         int victories = 0;
         //int bet = 1; // or 0, to do later
         for(int i = 1; i <= loopCount; i++) {
             victories += Game();
+        }
+        System.out.println("Percent of victories: " + (float)victories/loopCount);
+        victories = 0;
+        for(int i = 1; i <= loopCount; i++) {
+            victories += GameTwo();
         }
         System.out.println("Percent of victories: " + (float)victories/loopCount);
     }
@@ -51,5 +56,14 @@ public class EvilAndCoins {
             }
         }
         return firstValue == secondValue ? 1 : 0;
+    }
+
+    static int GameTwo(){
+        int stack = 0;
+        Random rand = new Random();
+        stack = rand.nextInt(16); // first coin toss
+        int first = stack < 8 ? (stack & 4) >> 2 : stack & 1;
+        int second = ((~stack & 4) == 4) && ((stack & 1) ==1) ? (stack & 8) >> 3 : (stack & 2) >> 1;
+        return first == second ? 1 : 0;
     }
 }
