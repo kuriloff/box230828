@@ -7,7 +7,7 @@ public class Phone {
     private String status;
 
     public Phone() {
-        status = "waiting";
+        status = "awaiting";
     }
     public Phone(String number, String model) {
         this.number = number;
@@ -18,14 +18,18 @@ public class Phone {
         this.weight = weight;
         this.number = number;
         this.model = model;
-        status = "waiting";
+        status = "awaiting";
     }
 
     public void receiveCall(String caller){
-        this.status = caller;
+        if(this.status == "awaiting") {
+            this.status = caller;
+        } else {
+            System.out.println("Sorry, but phone is busy..");
+        }
     }
     public void hangup(){
-        status = "waiting";
+        status = "awaiting";
     }
 
     public String getStatus() {

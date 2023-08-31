@@ -14,6 +14,7 @@ public class Cellular {
         System.out.printf("Apparatus model: %s, Serial number: %s, weight: %d \n", rigonda.getModel(), rigonda.getNumber(), rigonda.getWeight());
         System.out.printf("Apparatus model: %s, Serial number: %s, weight: %d \n", tesla.getModel(), tesla.getNumber(), tesla.getWeight());
         nokia.receiveCall("Kremlin");
+        nokia.receiveCall("Samara news");
         System.out.println(nokia.getStatus());
         nokia.hangup();
         System.out.println(nokia.getStatus());

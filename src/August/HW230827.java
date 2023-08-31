@@ -1,3 +1,5 @@
+package August;
+
 import java.util.Random;
 
 public class HW230827 {
@@ -48,9 +50,20 @@ public class HW230827 {
         int positiveMax = 0;
         int negativeMin = 0;
 
-        System.out.print("formed array: ");
+        System.out.print("\nformed array: ");
+        for (int i=0; i<myArr.length; i++){
+            myArr[i] = rand.nextInt(101) - 50;
+            System.out.print(myArr[i] + " ");
+        }
+
+        System.out.print("\nformed array: ");
         for (int i: myArr){
-            i = rand.nextInt(101) - 50;
+            System.out.print(i + " ");
+            i = -3;
+            System.out.print(i + " ");
+        }
+        System.out.print("\nformed array: ");
+        for (int i: myArr){
             System.out.print(i + " ");
             positiveAmount += i>0 ? 1 : 0;
             negativeAmount += i<0 ? 1 : 0;
