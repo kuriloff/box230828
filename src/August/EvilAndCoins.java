@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class EvilAndCoins {
     public static void main(String[] args) {
-        int loopCount = 100000000; //2140000000;
+        int loopCount = 1000000; //2140000000;
         int victories = 0;
         Date date = new Date();
         //int bet = 1; // or 0, to do later
@@ -16,13 +16,14 @@ public class EvilAndCoins {
             victories += GameOne();
         }
         System.out.println("Percent of my victories: " + (float)victories/loopCount);
-        victories = 0;
+        /*victories = 0;
         //System.out.println(date.toString());
         for(int i = 1; i <= loopCount; i++) {
             victories += GameTwo();
         }
         System.out.println("Percent of savvateev's victories: " + (float)victories/loopCount);
         // now I want to check my method
+        */
         int bingo = 0;
         //System.out.println(date.toString());
         for(int i = 1; i <= loopCount; i++) {
@@ -30,6 +31,7 @@ public class EvilAndCoins {
         }
         System.out.println("Percent of bingos: " + (float)bingo/loopCount);
         //System.out.println(date.toString());
+
     }
     static int GameOne(){
         int n;
@@ -41,32 +43,42 @@ public class EvilAndCoins {
 
         Random rand = new Random();
         stack = rand.nextInt(2); // first coin toss
-        //System.out.println(stack);
-        stack = rand.nextInt(2) << 1; //second coin toss
-        //System.out.println(stack);
+        //System.out.println(Integer.toBinaryString(stack));
+        //stack = rand.nextInt(2) << 1; //second coin toss
+        stack = (stack << 1) + rand.nextInt(2);
+        //System.out.println(Integer.toBinaryString(stack));
         n = 2;
         while(true){
             n++; //odd iteration
             stack = (stack << 1) + rand.nextInt(2); //odd coin toss
             //System.out.println(stack);
+            //System.out.println(Integer.toBinaryString(stack));
             if (((stack & 5) == 5) && (firstIndex == 0) ){
                 firstIndex = n - 1;
                 //System.out.println(stack);
                 firstValue = stack & 2;
+                System.out.println(Integer.toBinaryString(stack));
             }
             n++; // honest iteration
             stack = (stack << 1) + rand.nextInt(2); //honest coin toss
+            //System.out.println(Integer.toBinaryString(stack));
             //System.out.println(stack);
             if (((stack & 5) == 5) && (secondIndex == 0) ){
                 secondIndex = n - 1;
                 secondValue = stack & 2;
+                System.out.println(Integer.toBinaryString(stack));
             }
             if (firstIndex * secondIndex > 0){
-                //if(firstIndex+secondIndex>200){
-                //    System.out.println(firstIndex + " / " + secondIndex + " (" + (firstIndex + secondIndex) + ")");
-                //}
+                if(firstIndex+secondIndex>200){
+                    System.out.println(firstIndex + " / " + secondIndex + " (" + (firstIndex + secondIndex) + ")");
+                }
                 break;
             }
+        }
+        if(firstValue == secondValue){
+            System.out.println("Yess!   " + firstIndex + " / " + secondIndex);
+        }else{
+            System.out.println("Bolt..   " + firstIndex + " / " + secondIndex);
         }
         return firstValue == secondValue ? 1 : 0;
     }
@@ -91,8 +103,10 @@ public class EvilAndCoins {
 
         Random rand = new Random();
         stack = rand.nextInt(2); // first coin toss
+
         //System.out.println(stack);
-        stack = rand.nextInt(2) << 1; //second coin toss
+        //stack = rand.nextInt(2) << 1; //second coin toss
+        stack = (stack << 1) + rand.nextInt(2);
         //System.out.println(stack);
         n = 2;
         while(true){
