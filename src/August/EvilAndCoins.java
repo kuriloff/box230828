@@ -16,14 +16,14 @@ public class EvilAndCoins {
             victories += GameOne();
         }
         System.out.println("Percent of my victories: " + (float)victories/loopCount);
-        /*victories = 0;
+        victories = 0;
         //System.out.println(date.toString());
         for(int i = 1; i <= loopCount; i++) {
             victories += GameTwo();
         }
         System.out.println("Percent of savvateev's victories: " + (float)victories/loopCount);
         // now I want to check my method
-        */
+
         int bingo = 0;
         //System.out.println(date.toString());
         for(int i = 1; i <= loopCount; i++) {
@@ -57,7 +57,7 @@ public class EvilAndCoins {
                 firstIndex = n - 1;
                 //System.out.println(stack);
                 firstValue = stack & 2;
-                System.out.println(Integer.toBinaryString(stack));
+                //System.out.println(Integer.toBinaryString(stack));
             }
             n++; // honest iteration
             stack = (stack << 1) + rand.nextInt(2); //honest coin toss
@@ -66,20 +66,21 @@ public class EvilAndCoins {
             if (((stack & 5) == 5) && (secondIndex == 0) ){
                 secondIndex = n - 1;
                 secondValue = stack & 2;
-                System.out.println(Integer.toBinaryString(stack));
+                //System.out.println(Integer.toBinaryString(stack));
             }
             if (firstIndex * secondIndex > 0){
-                if(firstIndex+secondIndex>200){
+                /*if(firstIndex+secondIndex>200){
                     System.out.println(firstIndex + " / " + secondIndex + " (" + (firstIndex + secondIndex) + ")");
-                }
+                }*/
                 break;
             }
         }
-        if(firstValue == secondValue){
+        System.out.println(Integer.toBinaryString(stack));
+        /*if(firstValue == secondValue){
             System.out.println("Yess!   " + firstIndex + " / " + secondIndex);
         }else{
             System.out.println("Bolt..   " + firstIndex + " / " + secondIndex);
-        }
+        }*/
         return firstValue == secondValue ? 1 : 0;
     }
 
