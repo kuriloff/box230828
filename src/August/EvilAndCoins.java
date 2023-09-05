@@ -1,4 +1,6 @@
-package August;/*
+package August;
+
+/*
 Задачка про двух математиков в тюряге и недоброго уха с монетой
 */
 
@@ -16,7 +18,7 @@ public class EvilAndCoins {
             victories += GameOne();
         }
         System.out.println("Percent of my victories: " + (float)victories/loopCount);
-        victories = 0;
+        /*victories = 0;
         //System.out.println(date.toString());
         for(int i = 1; i <= loopCount; i++) {
             victories += GameTwo();
@@ -32,6 +34,8 @@ public class EvilAndCoins {
         System.out.println("Percent of bingos: " + (float)bingo/loopCount);
         //System.out.println(date.toString());
 
+         */
+
     }
     static int GameOne(){
         int n;
@@ -42,15 +46,18 @@ public class EvilAndCoins {
         int secondValue = 0;
 
         Random rand = new Random();
-        stack = rand.nextInt(2); // first coin toss
+        stack = 0; //rand.nextInt(2); // first coin toss
         //System.out.println(Integer.toBinaryString(stack));
         //stack = rand.nextInt(2) << 1; //second coin toss
-        stack = (stack << 1) + rand.nextInt(2);
+        //stack = (stack << 1) + rand.nextInt(2);
         //System.out.println(Integer.toBinaryString(stack));
+        stack = (int)(Math.round(Math.random()));
+        stack = (stack * 2) + (int)(Math.round(Math.random()));
         n = 2;
         while(true){
             n++; //odd iteration
-            stack = (stack << 1) + rand.nextInt(2); //odd coin toss
+            //stack = (stack * 2) + rand.nextInt(2); //odd coin toss
+            stack = (stack * 2) + (int)(Math.round(Math.random()));
             //System.out.println(stack);
             //System.out.println(Integer.toBinaryString(stack));
             if (((stack & 5) == 5) && (firstIndex == 0) ){
@@ -60,7 +67,8 @@ public class EvilAndCoins {
                 //System.out.println(Integer.toBinaryString(stack));
             }
             n++; // honest iteration
-            stack = (stack << 1) + rand.nextInt(2); //honest coin toss
+            //stack = (stack * 2) + rand.nextInt(2); //honest coin toss
+            stack = (stack * 2) + (int)(Math.round(Math.random()));
             //System.out.println(Integer.toBinaryString(stack));
             //System.out.println(stack);
             if (((stack & 5) == 5) && (secondIndex == 0) ){
@@ -75,7 +83,7 @@ public class EvilAndCoins {
                 break;
             }
         }
-        System.out.println(Integer.toBinaryString(stack));
+        //System.out.println(Integer.toBinaryString(stack));
         /*if(firstValue == secondValue){
             System.out.println("Yess!   " + firstIndex + " / " + secondIndex);
         }else{
