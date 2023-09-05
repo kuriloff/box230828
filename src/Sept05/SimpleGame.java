@@ -20,7 +20,7 @@ public class SimpleGame {
                     else if (i > j){System.out.println("Oh, your number is too big, try again");}
                     else if(i == j){System.out.println("Yess, you were able to catch your lion in Sahara!"); break;}
                 } catch (InputMismatchException e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
                     System.out.println("Wrong input, try again");
                     s.next();
                 }
