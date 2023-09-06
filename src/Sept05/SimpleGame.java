@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public class SimpleGame {
     public static void main(String[] args) {
-        final int MAX = 100;
+        final int MAX = 1000;
         int j = 0;
         j = ((int) (Math.random() * (MAX + 1))) + 1;
         int i = 0;
         Scanner s = new Scanner(System.in);
-        System.out.printf("Please, input integer between 1 and %d or Zero to exit game: \n", MAX);
+        System.out.printf("Please, input integer number between 1 and %d or Zero to quit the game: \n", MAX);
         {
             while(true){
                 try {
