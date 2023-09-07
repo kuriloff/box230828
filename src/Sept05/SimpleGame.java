@@ -14,18 +14,24 @@ public class SimpleGame {
             while(true){
                 try {
                     i = scanner.nextInt();
+                    if (i < 0 || i > MAX) throw new LimitException("Some text..");
                     if (i == 0){System.out.println("It's pity, but hope to see you again..\n"); break;}
                     else if(i < j){System.out.print("You're too modest, try to print some bigger number\n>>");}
                     else if (i > j){System.out.print("Oh, your number is too big, try again\n>>");}
                     else if(i == j){System.out.println("Yess, you were able to catch your lion in Sahara!"); break;}
-                } catch (InputMismatchException e) {
+                }catch (LimitException e) {
                     //e.printStackTrace();
+                    System.out.print("You enter number outside the play area\n>>");
+                    //System.out.print("You enter number outside the play area. Please use numbers between 1 and %d or Zero to quit the game  \n>>", MAX);
+                }catch (InputMismatchException e) {
                     System.out.print("Wrong input, try again\n>>");
                     scanner.next();
                 }
             }
         }
     }
+
+
 }
 
 
