@@ -18,7 +18,7 @@ public class EvilAndCoins {
             victories += GameOne();
         }
         System.out.println("Percent of my victories: " + (float)victories/loopCount);
-        /*victories = 0;
+        victories = 0;
         //System.out.println(date.toString());
         for(int i = 1; i <= loopCount; i++) {
             victories += GameTwo();
@@ -34,7 +34,7 @@ public class EvilAndCoins {
         System.out.println("Percent of bingos: " + (float)bingo/loopCount);
         //System.out.println(date.toString());
 
-         */
+
 
     }
     static int GameOne(){
